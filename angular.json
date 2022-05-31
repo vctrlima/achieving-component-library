@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "achieving-ui": {
+      "projectType": "library",
+      "root": "projects/achieving-ui",
+      "sourceRoot": "projects/achieving-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/achieving-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/achieving-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/achieving-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/achieving-ui/src/test.ts",
+            "tsConfig": "projects/achieving-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/achieving-ui/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "achieving-ui"
 }
